@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  description: API to retrieve random activities when bored
+  title: Bored API
+  version: 1.0.0
+servers:
+- url: http://www.boredapi.com/api
+paths:
+  /activity:
+    get:
+      description: Retrieve a random activity suggestion
+      parameters:
+      - description: API key for authentication
+        explode: true
+        in: query
+        name: key
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                activity: Learn a new language
+                type: education
+                participants: 1
+                price: 0.2
+                link: https://example.com/learn-new-language
+          description: Successful response
+        default:
+          content:
+            application/json:
+              example:
+                error: No activity found with the specified parameters
+          description: No activity found
+      summary: Get a random activity
+      x-accepts: application/json
+components:
+  schemas: {}
+

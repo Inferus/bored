@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Bored API
+  version: 1.0.0
+  description: API to retrieve random activities when bored
+
+servers:
+  - url: http://www.boredapi.com/api
+
+paths:
+  /activity:
+    get:
+      summary: Get a specific activity
+      description: Retrieve an activity with specified parameters
+      parameters:
+        - name: key
+          in: query
+          description: API key for authentication
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Type of activity
+          required: false
+          schema:
+            type: string
+        - name: participants
+          in: query
+          description: Number of participants
+          required: false
+          schema:
+            type: integer
+        - name: price
+          in: query
+          description: Price level of the activity
+          required: false
+          schema:
+            type: number
+        - name: accessibility
+          in: query
+          description: Accessibility level of the activity
+          required: false
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                activity: "Learn how to play a new sport"
+                type: "recreational"
+                participants: 1
+                price: 0.1
+                accessibility: 0.2
+                key: "5808228"
+        default:
+          description: No activity found
+          content:
+            application/json:
+              example:
+                error: "No activity found with the specified parameters"
