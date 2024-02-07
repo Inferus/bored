@@ -7,14 +7,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.upstream_mobility_itacademy.bored.boredApiClient.ActivitySearchParams;
 import com.upstream_mobility_itacademy.bored.boredApiClient.BoredApiClient;
+import com.upstream_mobility_itacademy.bored.model.Activity;
 
 public class BoredApiClientUnitTest {
 
     @MockBean
     private WebClient mockWebClient;
 
-
+    private MockWebServer mockWebServer;
     private BoredApiClient underTest;
 
 
@@ -23,7 +25,8 @@ public class BoredApiClientUnitTest {
 
     @Test
    public void testGetActivity(){
-    
+    ActivitySearchParams activitySearchParams = new ActivitySearchParams("education", "1", "0.1", "https://expressjs.com/", "3943506");
+    underTest.getActivity();
     }
 
 

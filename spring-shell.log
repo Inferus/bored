@@ -37,3 +37,17 @@
 1707334389508:get-activity --type education --participants 1
 1707334392313:get-activity --type education
 1707334476842:get-activity --price fwa
+1707342110290:get-activity --type education
+1707342124907:get-activity --price 12
+1707342284322:get-activity --price 1
+1707342286195:get-activity --price 2
+1707342288182:get-activity --price 23
+1707342304624:get-activity --participants 42
+1707342307470:get-activity --participants 1
+1707342309959:get-activity --participants 4
+1707342311705:get-activity --participants 45
+1707342313967:get-activity --participants 5
+1707342316994:get-activity --participants 6
+1707342319351:get-activity --participants 7
+1707342321770:get-activity --participants 8
+1707342329925:exit
