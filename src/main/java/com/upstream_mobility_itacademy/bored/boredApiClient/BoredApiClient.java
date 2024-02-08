@@ -1,10 +1,10 @@
 package com.upstream_mobility_itacademy.bored.boredApiClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import com.upstream_mobility_itacademy.bored.model.Activity;
 
-@Service
+@Component
 public class BoredApiClient {
 
         @Autowired
