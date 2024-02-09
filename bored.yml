@@ -44,6 +44,30 @@ paths:
           required: false
           schema:
             type: number
+        - name: minprice
+          in: query
+          description: Minimum price level of the activity
+          required: false
+          schema:
+            type: number
+        - name: maxprice
+          in: query
+          description: Maximum price level of the activity
+          required: false
+          schema:
+            type: number
+        - name: minaccessibility
+          in: query
+          description: Minimum accessibility level of the activity
+          required: false
+          schema:
+            type: number
+        - name: maxaccessibility
+          in: query
+          description: Maximum accessibility level of the activity
+          required: false
+          schema:
+            type: number
       responses:
         "200":
           description: Successful response

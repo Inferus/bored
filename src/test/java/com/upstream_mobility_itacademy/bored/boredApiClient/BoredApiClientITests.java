@@ -1,12 +1,8 @@
 package com.upstream_mobility_itacademy.bored.boredApiClient;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assume.assumeThat;
-import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
@@ -14,19 +10,22 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 
-public class BoredApiClientUnitTests {
+@TestInstance(Lifecycle.PER_CLASS)
+public class BoredApiClientITests {
 
   private BoredApiClient boredApiClient;
 
-  public static MockWebServer mockBackEnd;
+  private MockWebServer mockBackEnd;
 
   @BeforeAll
-  static void setUp() throws IOException {
+  void setUp() throws IOException {
     mockBackEnd = new MockWebServer();
     mockBackEnd.start();
   }
@@ -42,22 +41,23 @@ public class BoredApiClientUnitTests {
   }
 
   @AfterAll
-  static void tearDown() throws IOException {
+  void tearDown() throws IOException {
     mockBackEnd.shutdown();
   }
 
   @Test
   public void testGetActivityById() throws Exception {
+    String activityJSON =
+      "{\"activity\":\"Test Activity\",\"type\":\"education\",\"participants\":1,\"price\":0.5,\"link\":\"www.test.com\",\"key\":100}";
+
     mockBackEnd.enqueue(
       new MockResponse()
         .setResponseCode(200)
-        .setBody(
-          "{\"activity\":\"Test Activity\",\"type\":\"education\",\"participants\":1,\"price\":0.5,\"link\":\"www.test.com\",\"key\":100}"
-        )
+        .setBody(activityJSON)
         .addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
     );
 
-    boredApiClient.getActivity(
+    String activityFromApi = boredApiClient.getActivity(
       new ActivitySearchParams(
         "education",
         "1",
@@ -78,6 +78,11 @@ public class BoredApiClientUnitTests {
       "/?type=education&participants=1&price=0.0&accessibility=0.5&link=www.test.com&key=100",
       recordedRequest.getPath(),
       "Client requested wrong path"
+    );
+    assertEquals(
+      "Test Activity",
+      activityFromApi,
+      "Client returned unexpected activity"
     );
   }
 }
