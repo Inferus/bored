@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 generatedClient
+spring-shell.log
 ### STS ###
 .apt_generated
 .classpath
