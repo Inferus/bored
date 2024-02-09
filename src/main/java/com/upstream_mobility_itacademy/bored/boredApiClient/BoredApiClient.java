@@ -4,15 +4,23 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import com.upstream_mobility_itacademy.bored.model.Activity;
 
+
 @Component
 public class BoredApiClient {
 
-        @Autowired
-        private WebClient webClient;
+        private final WebClient webClient;
 
+        private final String baseUrl;
         
-       public BoredApiClient(WebClient webClient) {
+       public BoredApiClient(WebClient webClient, String baseUrl) {
                 this.webClient = webClient;
+                this.baseUrl = baseUrl;
+        }
+        
+        @Autowired
+        public BoredApiClient(WebClient webClient) {
+                this.webClient = webClient;
+                this.baseUrl = "https://www.boredapi.com/api/activity";
         }
 
 public String getActivity(ActivitySearchParams activitySearchParams){
@@ -25,7 +33,8 @@ public String getActivity(ActivitySearchParams activitySearchParams){
                 String key = activitySearchParams.getKey();
             
              Activity activity = webClient.get()
-                .uri(uriBuilder -> uriBuilder.queryParam("type", type)
+                .uri(baseUrl, uriBuilder -> uriBuilder
+                .queryParam("type", type)
                 .queryParam("participants", participants)
                 .queryParam("price", price)
                 .queryParam("accessibility", accessibility)

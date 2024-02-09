@@ -21,7 +21,7 @@ public class BoredShell {
 
     @ShellMethod("Gets an activity")
     public String getActivity(
-    @ShellOption(defaultValue = "") String type, 
+    @ShellOption(defaultValue = "", valueProvider = ActivityTypeValueProvider.class) String type, 
     @ShellOption(defaultValue = "") String key, 
     @ShellOption(defaultValue = "") String participants, 
     @ShellOption(defaultValue = "") String price,

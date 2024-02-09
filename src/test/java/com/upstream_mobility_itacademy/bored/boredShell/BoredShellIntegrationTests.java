@@ -15,11 +15,12 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 @ShellTest
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class BoredShellIntegrationTests {
-@Autowired
+
+	@Autowired
 	ShellTestClient client;
 
 	@Test
-	void testThatShellRuns() {
+	void test() {
 		InteractiveShellSession session = client
 				.interactive()
 				.run();
@@ -29,8 +30,10 @@ public class BoredShellIntegrationTests {
 				.containsText("shell");
 		});
 
-		
+		session.write(session.writeSequence().text("help").carriageReturn().build());
+		await().atMost(2, TimeUnit.SECONDS).untilAsserted(() -> {
+			ShellAssertions.assertThat(session.screen())
+				.containsText("AVAILABLE COMMANDS");
+		});
 	}
-
-
 }
