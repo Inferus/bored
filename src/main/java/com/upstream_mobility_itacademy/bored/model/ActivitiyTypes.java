@@ -1,4 +1,4 @@
-package com.upstream_mobility_itacademy.bored.util;
+package com.upstream_mobility_itacademy.bored.model;
 
 public enum ActivitiyTypes {
   EDUCATION("education"),

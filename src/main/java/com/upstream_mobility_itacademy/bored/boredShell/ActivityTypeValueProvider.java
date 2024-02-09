@@ -1,6 +1,6 @@
 package com.upstream_mobility_itacademy.bored.boredShell;
 
-import com.upstream_mobility_itacademy.bored.util.ActivitiyTypes;
+import com.upstream_mobility_itacademy.bored.model.ActivitiyTypes;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
