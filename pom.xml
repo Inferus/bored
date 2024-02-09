@@ -30,7 +30,6 @@
 			<groupId>org.springframework.shell</groupId>
 			<artifactId>spring-shell-starter</artifactId>
 		</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework.shell/spring-shell -->
 <dependency>
     <groupId>org.springframework.shell</groupId>
     <artifactId>spring-shell</artifactId>
@@ -40,25 +39,6 @@
   <groupId>org.awaitility</groupId>
   <artifactId>awaitility</artifactId>
   <version>4.2.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework.shell/spring-shell-test -->
-<dependency>
-    <groupId>org.springframework.shell</groupId>
-    <artifactId>spring-shell-test</artifactId>
-    <version>3.2.1</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework.shell/spring-shell-core-test-support -->
-<dependency>
-    <groupId>org.springframework.shell</groupId>
-    <artifactId>spring-shell-core-test-support</artifactId>
-    <version>3.2.1</version>
-    <scope>test</scope>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework.shell/spring-shell-starter-test -->
-<dependency>
-    <groupId>org.springframework.shell</groupId>
-    <artifactId>spring-shell-starter-test</artifactId>
-    <version>3.2.1</version>
 </dependency>
 <dependency>
     <groupId>com.squareup.okhttp3</groupId>
