@@ -39,8 +39,8 @@ public class BoredShell {
 
     try {
       InputValidator.validateSearchParams(activitySearchParams);
-    } catch (NumberFormatException e) {
-      return "";
+    } catch (Exception e) {
+      return e.getMessage();
     }
 
     return boredClient.getActivity(activitySearchParams);

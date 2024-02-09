@@ -13,4 +13,8 @@ public class ActivitySearchParams {
   private String accessibility;
   private String link;
   private String key;
+
+  public String[] getActivitySerachParamsList() {
+    return new String[] { type, participants, price, accessibility, link, key };
+  }
 }

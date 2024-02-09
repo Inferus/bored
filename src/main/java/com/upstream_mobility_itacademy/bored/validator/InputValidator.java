@@ -6,20 +6,48 @@ public class InputValidator {
 
   public static void validateSearchParams(
     ActivitySearchParams activitySearchParams
-  ) throws NumberFormatException {
+  ) throws Exception {
+    String[] paramsList = activitySearchParams.getActivitySerachParamsList();
+
+    for (String param : paramsList) {
+      if (param == null) {
+        throw new Exception("Empty parameter found");
+      }
+    }
+
     if (!activitySearchParams.getParticipants().equals("")) {
-      Integer.parseInt(activitySearchParams.getParticipants());
+      try {
+        Integer.parseInt(activitySearchParams.getParticipants());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException(
+          "Participants parameter is not a number"
+        );
+      }
     }
 
     if (!activitySearchParams.getPrice().equals("")) {
-      Float.parseFloat(activitySearchParams.getPrice());
+      try {
+        Float.parseFloat(activitySearchParams.getPrice());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException("Price parameter is not a number");
+      }
     }
     if (!activitySearchParams.getAccessibility().equals("")) {
-      Float.parseFloat(activitySearchParams.getAccessibility());
+      try {
+        Float.parseFloat(activitySearchParams.getAccessibility());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException(
+          "Accessibility parameter is not a number"
+        );
+      }
     }
 
     if (!activitySearchParams.getKey().equals("")) {
-      Integer.parseInt(activitySearchParams.getKey());
+      try {
+        Integer.parseInt(activitySearchParams.getKey());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException("Key parameter is not a number");
+      }
     }
   }
 }

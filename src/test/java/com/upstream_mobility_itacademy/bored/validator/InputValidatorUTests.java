@@ -52,4 +52,21 @@ public class InputValidatorUTests {
       () -> InputValidator.validateSearchParams(invalidParams)
     );
   }
+
+  @Test
+  public void testValidateSearchParamsWithNullPrice() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      null,
+      "0.8",
+      "https://www.example.com",
+      "123"
+    );
+
+    assertThrows(
+      Exception.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
 }
