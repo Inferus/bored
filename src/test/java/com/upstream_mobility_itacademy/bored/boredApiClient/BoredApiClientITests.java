@@ -47,13 +47,10 @@ public class BoredApiClientITests {
 
   @Test
   public void testGetActivity() throws Exception {
-    String activityJSON =
-      "{\"activity\":\"Test Activity\",\"type\":\"education\",\"participants\":1,\"price\":0.5,\"link\":\"www.test.com\",\"key\":100}";
-
     mockBackEnd.enqueue(
       new MockResponse()
         .setResponseCode(200)
-        .setBody(activityJSON)
+        .setBody(MockResponses.ACTIVITY_RESPONSE.toString())
         .addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
     );
 
@@ -88,12 +85,10 @@ public class BoredApiClientITests {
 
   @Test
   public void testNotFoundActivity() {
-    String errorJSON =
-      "{\"error\":\"No activity found with the specified parameters\"}";
     mockBackEnd.enqueue(
       new MockResponse()
         .setResponseCode(200)
-        .setBody(errorJSON)
+        .setBody(MockResponses.NO_ACTIVITY_FOUND_WITH_PARAMS.toString())
         .addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
     );
 

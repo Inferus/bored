@@ -20,7 +20,8 @@ public enum ActivitiyTypes {
     this.type = type;
   }
 
-  public String getType() {
+  @Override
+  public String toString() {
     return type;
   }
 }

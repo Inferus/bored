@@ -20,15 +20,15 @@ public class ActivityTypeValueProvider implements ValueProvider {
   ) {
     return Arrays
       .asList(
-        ActivitiyTypes.EDUCATION.getType(),
-        ActivitiyTypes.RECREATIONAL.getType(),
-        ActivitiyTypes.SOCIAL.getType(),
-        ActivitiyTypes.DIY.getType(),
-        ActivitiyTypes.CHARITY.getType(),
-        ActivitiyTypes.COOKING.getType(),
-        ActivitiyTypes.RELAXATION.getType(),
-        ActivitiyTypes.MUSIC.getType(),
-        ActivitiyTypes.BUSYWORK.getType()
+        ActivitiyTypes.EDUCATION.toString(),
+        ActivitiyTypes.RECREATIONAL.toString(),
+        ActivitiyTypes.SOCIAL.toString(),
+        ActivitiyTypes.DIY.toString(),
+        ActivitiyTypes.CHARITY.toString(),
+        ActivitiyTypes.COOKING.toString(),
+        ActivitiyTypes.RELAXATION.toString(),
+        ActivitiyTypes.MUSIC.toString(),
+        ActivitiyTypes.BUSYWORK.toString()
       )
       .stream()
       .map(CompletionProposal::new)
