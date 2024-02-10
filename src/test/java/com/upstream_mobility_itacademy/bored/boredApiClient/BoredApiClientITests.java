@@ -46,7 +46,7 @@ public class BoredApiClientITests {
   }
 
   @Test
-  public void testGetActivityById() throws Exception {
+  public void testGetActivity() throws Exception {
     String activityJSON =
       "{\"activity\":\"Test Activity\",\"type\":\"education\",\"participants\":1,\"price\":0.5,\"link\":\"www.test.com\",\"key\":100}";
 
@@ -81,6 +81,35 @@ public class BoredApiClientITests {
     );
     assertEquals(
       "Test Activity",
+      activityFromApi,
+      "Client returned unexpected activity"
+    );
+  }
+
+  @Test
+  public void testNotFoundActivity() {
+    String errorJSON =
+      "{\"error\":\"No activity found with the specified parameters\"}";
+    mockBackEnd.enqueue(
+      new MockResponse()
+        .setResponseCode(200)
+        .setBody(errorJSON)
+        .addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+    );
+
+    String activityFromApi = boredApiClient.getActivity(
+      new ActivitySearchParams(
+        "education",
+        "1",
+        "0.0",
+        "0.5",
+        "www.test.com",
+        "100"
+      )
+    );
+
+    assertEquals(
+      "No activities with searched parameters were found:(",
       activityFromApi,
       "Client returned unexpected activity"
     );

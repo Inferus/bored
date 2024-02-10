@@ -1,8 +1,10 @@
 package com.upstream_mobility_itacademy.bored.boredApiClient;
 
+import com.upstream_mobility_itacademy.bored.util.Generated;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+@Generated
 @Data
 @AllArgsConstructor
 public class ActivitySearchParams {

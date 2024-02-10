@@ -1,8 +1,12 @@
 package com.upstream_mobility_itacademy.bored.validator;
 
 import com.upstream_mobility_itacademy.bored.boredApiClient.ActivitySearchParams;
+import com.upstream_mobility_itacademy.bored.util.Generated;
 
 public class InputValidator {
+
+  @Generated
+  public InputValidator() {}
 
   public static void validateSearchParams(
     ActivitySearchParams activitySearchParams

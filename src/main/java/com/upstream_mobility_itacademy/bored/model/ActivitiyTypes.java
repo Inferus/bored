@@ -1,5 +1,8 @@
 package com.upstream_mobility_itacademy.bored.model;
 
+import com.upstream_mobility_itacademy.bored.util.Generated;
+
+@Generated
 public enum ActivitiyTypes {
   EDUCATION("education"),
   RECREATIONAL("recreational"),

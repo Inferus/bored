@@ -69,4 +69,100 @@ public class InputValidatorUTests {
       () -> InputValidator.validateSearchParams(invalidParams)
     );
   }
+
+  @Test
+  public void testValidateSearchParamsWithInvalidPrice() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "ff",
+      "0.8",
+      "https://www.example.com",
+      "123"
+    );
+
+    assertThrows(
+      NumberFormatException.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithInvalidAccessibility() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "ff",
+      "https://www.example.com",
+      "123"
+    );
+
+    assertThrows(
+      NumberFormatException.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithInvalidKey() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "ff"
+    );
+
+    assertThrows(
+      NumberFormatException.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithEmptyPrice() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "",
+      "0.8",
+      "https://www.example.com",
+      "123"
+    );
+
+    assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithEmptyAccessibility() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "",
+      "https://www.example.com",
+      "123"
+    );
+
+    assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithEmptyKey() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      ""
+    );
+
+    assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
 }

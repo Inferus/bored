@@ -1,6 +1,7 @@
 package com.upstream_mobility_itacademy.bored.boredApiClient;
 
 import com.upstream_mobility_itacademy.bored.model.Activity;
+import com.upstream_mobility_itacademy.bored.util.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,6 +18,7 @@ public class BoredApiClient {
     this.baseUrl = baseUrl;
   }
 
+  @Generated
   @Autowired
   public BoredApiClient(WebClient webClient) {
     this.webClient = webClient;

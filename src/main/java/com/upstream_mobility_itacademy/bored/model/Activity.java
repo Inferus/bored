@@ -1,7 +1,9 @@
 package com.upstream_mobility_itacademy.bored.model;
 
+import com.upstream_mobility_itacademy.bored.util.Generated;
 import lombok.Data;
 
+@Generated
 @Data
 public class Activity {
 

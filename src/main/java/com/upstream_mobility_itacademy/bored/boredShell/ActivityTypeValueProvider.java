@@ -1,6 +1,7 @@
 package com.upstream_mobility_itacademy.bored.boredShell;
 
 import com.upstream_mobility_itacademy.bored.model.ActivitiyTypes;
+import com.upstream_mobility_itacademy.bored.util.Generated;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,6 +10,7 @@ import org.springframework.shell.CompletionProposal;
 import org.springframework.shell.standard.ValueProvider;
 import org.springframework.stereotype.Component;
 
+@Generated
 @Component
 public class ActivityTypeValueProvider implements ValueProvider {
 
