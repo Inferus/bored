@@ -5,6 +5,7 @@
 	id 'java'
 	id 'org.springframework.boot' version '3.2.2'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'jacoco'
 }
 
 group = 'com.upstream_mobility_itacademy'
@@ -53,3 +54,9 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+test {
+    finalizedBy jacocoTestReport 
+}
+jacocoTestReport {
+    dependsOn test 
+}
