@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -24,16 +25,23 @@ public class BoredApiClientITests {
 
   private MockWebServer mockBackEnd;
 
+  @Value("${bored.test.mockServerPort}")
+  private String mockServerPort;
+
   @BeforeAll
   void setUp() throws IOException {
+    if (mockServerPort == null) {
+      mockServerPort = "8080";
+    }
+
     mockBackEnd = new MockWebServer();
-    mockBackEnd.start();
+    mockBackEnd.start(Integer.parseInt(mockServerPort));
   }
 
   @BeforeEach
   void initialize() {
     String baseUrl = String.format(
-      "http://localhost:%s",
+      "http://127.0.0.1:%s",
       mockBackEnd.getPort()
     );
 

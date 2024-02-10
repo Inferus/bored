@@ -13,6 +13,8 @@ spring-shell.log
 .settings
 .springBeans
 .sts4-cache
+.mvn
+.gradle
 ### IntelliJ IDEA ###
 .idea
 *.iws
