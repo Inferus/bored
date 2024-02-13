@@ -69,7 +69,11 @@ public class BoredApiClientITests {
         "0.0",
         "0.5",
         "www.test.com",
-        "100"
+        "100",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0"
       )
     );
     RecordedRequest recordedRequest = mockBackEnd.takeRequest();
@@ -80,7 +84,7 @@ public class BoredApiClientITests {
       "Client uses unexpected HTTP method"
     );
     assertEquals(
-      "/?type=education&participants=1&price=0.0&accessibility=0.5&link=www.test.com&key=100",
+      "/?type=education&participants=1&price=0.0&accessibility=0.5&link=www.test.com&key=100&minprice=0.0&maxprice=0.0&minaccessibility=0.0&maxaccessibility=0.0",
       recordedRequest.getPath(),
       "Client requested wrong path"
     );
@@ -107,7 +111,11 @@ public class BoredApiClientITests {
         "0.0",
         "0.5",
         "www.test.com",
-        "100"
+        "100",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0"
       )
     );
 

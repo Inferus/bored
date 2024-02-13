@@ -15,8 +15,23 @@ public class ActivitySearchParams {
   private String accessibility;
   private String link;
   private String key;
+  private String minprice;
+  private String maxprice;
+  private String minaccessibility;
+  private String maxaccessibility;
 
   public String[] getActivitySerachParamsList() {
-    return new String[] { type, participants, price, accessibility, link, key };
+    return new String[] {
+      type,
+      participants,
+      price,
+      accessibility,
+      link,
+      key,
+      minprice,
+      maxprice,
+      minaccessibility,
+      maxaccessibility,
+    };
   }
 }

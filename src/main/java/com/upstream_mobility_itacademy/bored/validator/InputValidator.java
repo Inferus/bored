@@ -24,7 +24,7 @@ public class InputValidator {
         Integer.parseInt(activitySearchParams.getParticipants());
       } catch (NumberFormatException e) {
         throw new NumberFormatException(
-          "Participants parameter is not a number"
+          "Participants parameter is not a number or is not a valid number format, try to use periods instead of commas for decimal numbers"
         );
       }
     }
@@ -33,7 +33,9 @@ public class InputValidator {
       try {
         Float.parseFloat(activitySearchParams.getPrice());
       } catch (NumberFormatException e) {
-        throw new NumberFormatException("Price parameter is not a number");
+        throw new NumberFormatException(
+          "Price parameter is not a number or is not a valid number format, try to use periods instead of commas for decimal numbers"
+        );
       }
     }
     if (!activitySearchParams.getAccessibility().equals("")) {
@@ -41,7 +43,7 @@ public class InputValidator {
         Float.parseFloat(activitySearchParams.getAccessibility());
       } catch (NumberFormatException e) {
         throw new NumberFormatException(
-          "Accessibility parameter is not a number"
+          "Accessibility parameter is not a number or is not a valid number format, try to use periods instead of commas for decimal numbers"
         );
       }
     }
@@ -51,6 +53,42 @@ public class InputValidator {
         Integer.parseInt(activitySearchParams.getKey());
       } catch (NumberFormatException e) {
         throw new NumberFormatException("Key parameter is not a number");
+      }
+    }
+    if (!activitySearchParams.getMinprice().equals("")) {
+      try {
+        Float.parseFloat(activitySearchParams.getMinprice());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException(
+          "Minprice parameter is not a number or is not a valid number format, try to use periods instead of commas for decimal numbers"
+        );
+      }
+    }
+    if (!activitySearchParams.getMaxprice().equals("")) {
+      try {
+        Float.parseFloat(activitySearchParams.getMaxprice());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException(
+          "Maxprice parameter is not a number or is not a valid number format, try to use periods instead of commas for decimal numbers"
+        );
+      }
+    }
+    if (!activitySearchParams.getMinaccessibility().equals("")) {
+      try {
+        Float.parseFloat(activitySearchParams.getMinaccessibility());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException(
+          "Minaccessibility parameter is not a number or is not a valid number format, try to use periods instead of commas for decimal numbers"
+        );
+      }
+    }
+    if (!activitySearchParams.getMaxaccessibility().equals("")) {
+      try {
+        Float.parseFloat(activitySearchParams.getMaxaccessibility());
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException(
+          "Maxaccessibility parameter is not a number or is not a valid number format, try to use periods instead of commas for decimal numbers"
+        );
       }
     }
   }

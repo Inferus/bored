@@ -73,6 +73,23 @@ paths:
           description: Successful response
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  activity:
+                    type: string
+                  type:
+                    type: string
+                  participants:
+                    type: integer
+                  price:
+                    type: number
+                  accessibility:
+                    type: number
+                  key:
+                    type: string
+                  link:
+                    type: string
               example:
                 activity: "Learn how to play a new sport"
                 type: "recreational"

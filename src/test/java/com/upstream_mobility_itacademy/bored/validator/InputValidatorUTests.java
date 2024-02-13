@@ -16,6 +16,10 @@ public class InputValidatorUTests {
       "10.5",
       "0.8",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
     assertDoesNotThrow(() -> InputValidator.validateSearchParams(validParams));
@@ -29,6 +33,10 @@ public class InputValidatorUTests {
       "10.5",
       "0.8",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
 
@@ -44,6 +52,10 @@ public class InputValidatorUTests {
       "10.5",
       "0.8",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
 
@@ -61,6 +73,10 @@ public class InputValidatorUTests {
       null,
       "0.8",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
 
@@ -78,6 +94,10 @@ public class InputValidatorUTests {
       "ff",
       "0.8",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
 
@@ -95,6 +115,10 @@ public class InputValidatorUTests {
       "10.5",
       "ff",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
 
@@ -112,7 +136,11 @@ public class InputValidatorUTests {
       "10.5",
       "0.8",
       "https://www.example.com",
-      "ff"
+      "ff",
+      "123",
+      "123",
+      "123",
+      "123"
     );
 
     assertThrows(
@@ -129,6 +157,10 @@ public class InputValidatorUTests {
       "",
       "0.8",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
 
@@ -144,6 +176,10 @@ public class InputValidatorUTests {
       "10.5",
       "",
       "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       "123"
     );
 
@@ -159,10 +195,174 @@ public class InputValidatorUTests {
       "10.5",
       "0.8",
       "https://www.example.com",
+      "",
+      "123",
+      "123",
+      "123",
+      "123"
+    );
+
+    assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithEmptyMinprice() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "",
+      "123",
+      "123",
+      "123"
+    );
+
+    assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithEmptyMaxprice() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "123",
+      "",
+      "123",
+      "123"
+    );
+
+    assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithEmptyMinaccessibility() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "",
+      "123"
+    );
+
+    assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithEmptyMaxaccessibility() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
       ""
     );
 
     assertDoesNotThrow(() -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithInvalidMinprice() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "ff",
+      "123",
+      "123",
+      "123"
+    );
+
+    assertThrows(
+      NumberFormatException.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithInvalidMaxprice() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "123",
+      "ff",
+      "123",
+      "123"
+    );
+
+    assertThrows(
+      NumberFormatException.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithInvalidMinaccessibility() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "ff",
+      "123"
+    );
+
+    assertThrows(
+      NumberFormatException.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
+    );
+  }
+
+  @Test
+  public void testValidateSearchParamsWithInvalidMaxaccessibility() {
+    ActivitySearchParams invalidParams = new ActivitySearchParams(
+      "education",
+      "1",
+      "10.5",
+      "0.8",
+      "https://www.example.com",
+      "123",
+      "123",
+      "123",
+      "123",
+      "ff"
+    );
+
+    assertThrows(
+      NumberFormatException.class,
+      () -> InputValidator.validateSearchParams(invalidParams)
     );
   }
 }

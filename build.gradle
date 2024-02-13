@@ -22,7 +22,9 @@ configurations {
 		extendsFrom annotationProcessor
 	}
 }
-
+configurations {
+    all*.exclude module : 'spring-boot-starter-logging'
+}
 repositories {
 	mavenCentral()
 }

@@ -28,7 +28,11 @@ public class BoredShell {
     @ShellOption(defaultValue = "") String participants,
     @ShellOption(defaultValue = "") String price,
     @ShellOption(defaultValue = "") String accessability,
-    @ShellOption(defaultValue = "") String link
+    @ShellOption(defaultValue = "") String link,
+    @ShellOption(defaultValue = "") String minprice,
+    @ShellOption(defaultValue = "") String maxprice,
+    @ShellOption(defaultValue = "") String minaccessibility,
+    @ShellOption(defaultValue = "") String maxaccessibility
   ) {
     ActivitySearchParams activitySearchParams = new ActivitySearchParams(
       type,
@@ -36,11 +40,17 @@ public class BoredShell {
       price,
       accessability,
       link,
-      key
+      key,
+      minprice,
+      maxprice,
+      minaccessibility,
+      maxaccessibility
     );
 
     try {
       InputValidator.validateSearchParams(activitySearchParams);
+    } catch (NumberFormatException e) {
+      return "Invalid input: " + e.getMessage();
     } catch (Exception e) {
       return e.getMessage();
     }
