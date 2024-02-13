@@ -97,9 +97,15 @@ paths:
                 price: 0.1
                 accessibility: 0.2
                 key: "5808228"
+                link: "https://www.wikihow.com/Play-Basketball"
         default:
           description: No activity found
           content:
             application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
               example:
                 error: "No activity found with the specified parameters"
