@@ -20,18 +20,28 @@
 ### Steps
 
 1. Clone this repo
-   ` git clone https://github.com/Inferus/bored`
+   ```
+   git clone https://github.com/Inferus/bored
+   ```
 2. Enter bored folder
-   `cd bored`
+   ```
+   cd bored
+   ```
 3. Make gradlew executable (MacOS, Linux)
-   ` chmod 777 ./gradlew`
+   ```
+   chmod 777 ./gradlew
+   ```
 4. Build the app using gradlew
-   `./gradlew clean build`
+   ```
+   ./gradlew clean build
+   ```
 
 ### How to run the Bored Shell (inside the project directory)
 
 1. Run the `.jar` file
-   `java -jar build/libs/bored-0.0.1-SNAPSHOT.jar`
+   ```
+   java -jar build/libs/bored-0.0.1-SNAPSHOT.jar
+   ```
 
 ## Usage
 
@@ -42,7 +52,10 @@
 ### Parameters
 
 - `--type` - Gets an activity with a certain type (e.g. sport). Has autocomplition (use tabulation).
-  Example: `get-activity --type sport`
+  Example:
+  ```
+  get-activity --type sport
+  ```
 - ` --key` - Find an activity by its key
 - ` --participants` - Find a random activity with a given number of participants
 - ` --price` - Find an activity with a specified price
