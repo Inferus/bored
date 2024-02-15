@@ -51,10 +51,10 @@
 
 ### Parameters
 
-- `--type` - Gets an activity with a certain type (e.g. sport). Has autocomplition (use tabulation).
+- `--type` - Gets an activity with a certain type (e.g. charity). Has autocomplition (use tabulation).
   Example:
   ```
-  get-activity --type sport
+  get-activity --type charity
   ```
 - ` --key` - Find an activity by its key
 - ` --participants` - Find a random activity with a given number of participants
