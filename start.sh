@@ -1,3 +1,1 @@
-w
-mvn clean package
-java -jar target/bored-0.0.1-SNAPSHOT.jar
+java -jar build/libs/bored-0.0.1-SNAPSHOT.jar
