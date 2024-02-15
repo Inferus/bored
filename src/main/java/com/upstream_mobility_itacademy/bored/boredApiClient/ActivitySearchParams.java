@@ -13,7 +13,6 @@ public class ActivitySearchParams {
   private String participants;
   private String price;
   private String accessibility;
-  private String link;
   private String key;
   private String minprice;
   private String maxprice;
@@ -26,7 +25,6 @@ public class ActivitySearchParams {
       participants,
       price,
       accessibility,
-      link,
       key,
       minprice,
       maxprice,

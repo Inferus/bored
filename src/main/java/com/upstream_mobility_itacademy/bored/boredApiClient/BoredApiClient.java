@@ -30,7 +30,6 @@ public class BoredApiClient {
     String participants = activitySearchParams.getParticipants();
     String price = activitySearchParams.getPrice();
     String accessibility = activitySearchParams.getAccessibility();
-    String link = activitySearchParams.getLink();
     String key = activitySearchParams.getKey();
     String minprice = activitySearchParams.getMinprice();
     String maxprice = activitySearchParams.getMaxprice();
@@ -47,7 +46,6 @@ public class BoredApiClient {
             .queryParam("participants", participants)
             .queryParam("price", price)
             .queryParam("accessibility", accessibility)
-            .queryParam("link", link)
             .queryParam("key", key)
             .queryParam("minprice", minprice)
             .queryParam("maxprice", maxprice)
